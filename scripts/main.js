@@ -18,6 +18,17 @@ for (let suit of suits) {
   }
 }
 
+//!!!figure this out!!!
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   // Execute after page load
 });
@@ -58,20 +69,22 @@ const newPCard1 = document.createElement("img")
 //   playerHand.appendChild(hitCard2)
 // })
 
-
 function dealCards(player){
   for (i=0; i<2; i++){
     const drawnCard = deck.pop();
+   
+    // console.log("Drawn Card - Rank:", drawnCard.rank, "Suit:", drawnCard.suit);//
 
     const cardImage = document.createElement("img");
 
     cardImage.setAttribute("src",`./images/${drawnCard.rank}_of_${drawnCard.suit}.png`);
 
-    player.appendChild(cardImage)
+    player.appendChild(cardImage);
   }
 }
 
 deal.addEventListener("click", () => {
+  shuffle(deck)
   dealCards(dealerHand)
   dealCards(playerHand)
   // const drawnCard = deck.pop();
@@ -83,6 +96,11 @@ deal.addEventListener("click", () => {
   // dealerHand.appendChild(cardImage)
   // playerHand.appendChild(cardImage)
 })
+
+// function calculatePoints(player){
+//   let points = sum += rank[i]
+//    console.log(playerPoints)
+// }
 
 const stand = document.getElementById("stand-button")
 
@@ -96,3 +114,6 @@ const stand = document.getElementById("stand-button")
 
 //11
 //function calculatePoints
+
+
+
