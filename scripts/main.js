@@ -21,3 +21,78 @@ for (let suit of suits) {
 window.addEventListener("DOMContentLoaded", () => {
   // Execute after page load
 });
+
+const deal = document.getElementById("deal-button")
+
+const newCard = document.createElement("img")
+const newCard1 = document.createElement("img")
+const newPCard = document.createElement("img")
+const newPCard1 = document.createElement("img")
+
+// deal.addEventListener("click",()=> {
+//     newCard.setAttribute("src","./images/king_of_hearts.png")
+//     dealerHand.appendChild(newCard)
+//     // playerHand.appendChild("img")
+    
+//     newCard1.setAttribute("src","./images/king_of_clubs.png")
+//     dealerHand.appendChild(newCard1)
+
+//     newPCard.setAttribute("src","./images/king_of_spades.png")
+//     playerHand.appendChild(newPCard)
+//     // playerHand.appendChild("img")
+    
+//     newPCard1.setAttribute("src","./images/king_of_diamonds.png")
+//     playerHand.appendChild(newPCard1)
+// })
+
+// const hit = document.getElementById("hit-button")
+// const hitCard = document.createElement("img")
+// const hitCard2 = document.createElement("img")
+
+// hit.addEventListener("click",()=> {
+//   hitCard.setAttribute("src","./images/queen_of_spades.png")
+
+//   hitCard2.setAttribute("src","./images/queen_of_spades.png")
+
+//   dealerHand.appendChild(hitCard)
+//   playerHand.appendChild(hitCard2)
+// })
+
+
+function dealCards(player){
+  for (i=0; i<2; i++){
+    const drawnCard = deck.pop();
+
+    const cardImage = document.createElement("img");
+
+    cardImage.setAttribute("src",`./images/${drawnCard.rank}_of_${drawnCard.suit}.png`);
+
+    player.appendChild(cardImage)
+  }
+}
+
+deal.addEventListener("click", () => {
+  dealCards(dealerHand)
+  dealCards(playerHand)
+  // const drawnCard = deck.pop();
+
+  // const cardImage = document.createElement("img");
+
+  // cardImage.setAttribute("src",`./images/${drawnCard.rank}_of_${drawnCard.suit}.png`);
+
+  // dealerHand.appendChild(cardImage)
+  // playerHand.appendChild(cardImage)
+})
+
+const stand = document.getElementById("stand-button")
+
+
+// stand.addEventListener("click", ()=> {
+
+// })
+//8 
+//images{rank}_of_{suit}.png
+//function getCardImage 
+
+//11
+//function calculatePoints
